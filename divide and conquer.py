@@ -9,7 +9,7 @@ def kClosest(points, K):
         oi, oj = i, j
         pivot = distance(random.randint(i, j))  # 生成的随机数n：i<=n<=j
 
-        # 这一块把最大的数放在最后---------------------------
+        # 这一块把小的数的数放在最前---------------------------
         while i < j:
             if distance(i) < pivot:
                 i += 1

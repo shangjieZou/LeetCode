@@ -1,3 +1,40 @@
+class stockI_Solution():
+    def maxProfit(self, prices):
+        if prices == []:
+            max_profit=0
+        else:
+            min_price = prices[0]
+            max_profit = 0
+            for i in range(len(prices)):
+                if prices[i] < min_price:
+                    min_price = prices[i]
+                elif prices[i] - min_price > max_profit:
+                    max_profit = prices[i] - min_price
+            return max_profit
+
+
+# leetcode打家劫舍
+class rob_Solution:
+    def rob(self, nums):
+        if nums != []:
+            pre_max = 0
+            current_max = nums[0]
+            for i in range(len(nums)):
+                if i+1 < len(nums):
+                    temp = current_max
+                    current_max = max(pre_max+nums[i+1], current_max)
+                    pre_max = temp
+        else:
+            current_max = 0
+        return current_max
+
+if __name__ == '__main__':
+    if(0):
+        prices = [9,6,5,3,1]
+        max_profit = stockI_Solution()
+        print(max_profit.maxProfit(prices))
+        
+
 # Edit Distance
 def edit_distance(word1, word2):
     len1 = len(word1);
